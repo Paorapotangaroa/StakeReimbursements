@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Minimal Form</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>Reimbursement Link Splitter</h1>
+      <p class="description">
+        Please paste the image links here and it will create clickable links:
+      </p>
+      <div class="form-group">
+        <input
+          type="text"
+          id="user-input"
+          placeholder="Enter the image links"
+        />
+        <button onclick="submitForm()">Submit</button>
+      </div>
+      <br />
+      <p id="enteredLinks"></p>
+    </div>
+
+    <script>
+      //   let output = "";
+
+      function submitForm() {
+        // Create output
+        let output = "";
+        // Grab the input and split at the commas
+        const input = document.getElementById("user-input").value;
+        const array = input.split(",");
+        let counter = 1;
+        for (let link of array) {
+          // I could use window.open() but the users said they want to click each link themselves
+          output +=
+            "<div><a target='blank' href='" +
+            link.replace(" ", "") +
+            "'>Image " +
+            counter++ +
+            "</a></div><br>";
+        }
+        // Create the new links
+        document.getElementById("enteredLinks").innerHTML = output;
+      }
+    </script>
+  </body>
+</html>
