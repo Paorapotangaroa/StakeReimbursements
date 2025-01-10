@@ -1,0 +1,2 @@
+The client has a google form that collects recipets for proof of purchase and reimbursement.
+The connected google sheet works great with a single image but when multiple images are provided the sheet concatenates the urls together with commas inbetween. This makes them unclickable. This link splitter was built by request of the client. Originally this opened each link in a new tab but the client requested a clickable list instead
